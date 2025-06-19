@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# wBm Chat Uygulaması
 
-## Getting Started
+## 📌 Proje Tanımı
 
-First, run the development server:
+Bu proje, öğrenciler arasında gerçek zamanlı mesajlaşmayı ve kullanıcı yönetimini kolaylaştırmayı amaçlayan bir web tabanlı mesajlaşma sistemidir. 
+Amaç; kullanıcıların birbirleriyle güvenli ve rol tabanlı bir yapı içerisinde iletişim kurabilmesini sağlamak, admin paneli aracılığıyla kullanıcı kontrolü ve yetki ataması yapabilmektir.
 
-```bash
+Kullanıcılar sisteme kayıt olabilir, giriş yapabilir, mesaj gönderip alabilir, adminler ise tüm kullanıcıları listeleyip rol değişikliği veya silme işlemleri yapabilir. 
+Bu yapı, küçük çaplı sosyal uygulamalar veya öğrenci projeleri için temel bir iletişim altyapısı sunar.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+## ⚙️ Kullanılan Teknolojiler
+
+- **Next.js** – Frontend ve backend işlemleri için.
+- **Prisma ORM** – Veritabanı işlemleri ve veri modelleme.
+- **SQLite** – Geliştirme ortamı için lokal veritabanı.
+- **Tailwind CSS** – Modern ve özelleştirilebilir stil sistemi.
+- **Shadcn UI** – Arayüz bileşenleri için kullanıldı (opsiyonel).
+- **Bcrypt.js** – Şifreleme işlemleri için.
+- **NextAuth veya JWT** – Oturum yönetimi (projeye göre).
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+## 🚀 Kurulum Talimatları
+
+1. **Projeyi Klonlayın**
+   ```bash
+   git clone https://github.com/kullaniciadi/wBm-Chat.git
+   cd wBm-Chat
+Gerekli Paketleri Kurun
+
+
+npm install
+Ortam Değişkenlerini Ayarlayın
+Ana dizine .env dosyası oluşturun ve içine aşağıdaki bilgileri ekleyin:
+
+
+DATABASE_URL="file:./dev.db"
+NEXTAUTH_SECRET="rastgele-uzun-bir-gizli-anahtar"
+Veritabanını Oluşturun ve Migrasyonları Uygulayın
+
+
+npx prisma migrate dev --name init
+Geliştirme Sunucusunu Başlatın
+
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tarayıcıda şu adresi açın:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+http://localhost:3000
+🔑 Admin Giriş Bilgileri
+Proje testi için bir admin hesabı:
+  
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+E-posta: berhan20001@gmail.com
+Şifre: 123456789
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+🧩 Ek Bilgiler
+Kullanıcı rollerini değiştirmek veya kullanıcıları silmek için admin paneli kullanılır.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Proje sadece localde değil, dileyen kullanıcılar için GitHub üzerinden Vercel ile kolayca canlıya alınabilir.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Şifreler bcryptjs ile güvenli bir şekilde saklanmaktadır.
+
+📄 Lisans
+Bu proje eğitim amaçlıdır. Lisanslama gereksinimi duyulmayan açık kaynaklı bir örnektir.
