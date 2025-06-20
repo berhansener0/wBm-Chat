@@ -35,6 +35,13 @@ export default function MessagesPage() {
     fetchUsers();
   }, []);
 
+  async function logout() {
+    await fetch('/api/logout', {
+      method: 'POST',
+    });
+    window.location.href = '/login';  // çıkış sonrası login sayfasına yönlendir
+  }
+
   useEffect(() => {
     if (!selectedUser) return;
 
@@ -43,7 +50,7 @@ export default function MessagesPage() {
         method: "POST",
         body: JSON.stringify({
           user1Id: currentUserId,
-          user2Id: selectedUser.id,
+          user2Id: selectedUser!.id,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -109,22 +116,30 @@ export default function MessagesPage() {
       {/* Mesajlaşma alanı */}
       <div className="flex flex-col flex-1">
         {/* Başlık */}
-        <header className="p-6 bg-white shadow-md text-center border-b">
-          <h1 className="text-3xl font-extrabold text-blue-600 tracking-wide">
-            <span className="bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">
-              wBm-Chatleş
-            </span>
-          </h1>
+        <header className="p-6 bg-white shadow-md text-center border-b flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-extrabold text-blue-600 tracking-wide">
+              <span className="bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">
+                wBm-Chatleş
+              </span>
+            </h1>
 
-          {selectedEmail ? (
-            <p className="mt-2 text-sm text-gray-500">
-              Sohbet ediyorsun: <strong>{selectedEmail}</strong>
-            </p>
-          ) : (
-            <p className="mt-2 text-sm text-gray-400">
-              Lütfen bir kullanıcı seçin
-            </p>
-          )}
+            {selectedEmail ? (
+              <p className="mt-2 text-sm text-gray-500">
+                Sohbet ediyorsun: <strong>{selectedEmail}</strong>
+              </p>
+            ) : (
+              <p className="mt-2 text-sm text-gray-400">Lütfen bir kullanıcı seçin</p>
+            )}
+          </div>
+
+          {/* Çıkış Yap Butonu */}
+          <button
+            onClick={logout}
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+          >
+            Çıkış Yap
+          </button>
         </header>
 
         {/* Mesajlar */}

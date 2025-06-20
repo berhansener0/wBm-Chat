@@ -19,6 +19,7 @@ model User {
   messagesReceived Message[]      @relation("ReceivedMessages")
   conversations    Conversation[] @relation("ConversationParticipants")
   logs             Log[]
+  sessiontoken String @unique
 }
 
 model Message {
